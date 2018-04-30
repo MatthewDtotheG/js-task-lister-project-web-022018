@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   </ul>
                 </div>`)
 
-                stuff.map(x => document.getElementById(`delete-${x}`).addEventListener('click', deleteList))
+                document.getElementById('lists').addEventListener('click', deleteList)
                 newTitle.value = ''
         }
 
@@ -67,8 +67,10 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           function deleteList(e){
-              console.log(document.getElementById(`${e.target.id}`))
-              document.getElementById(`track-${e.target.id}`).remove()
+            console.log(e.target.tagName)
+              if (e.target.tagName === "BUTTON") {
+                  document.getElementById(`track-${e.target.id}`).remove()
+            }
           }
 
 })
